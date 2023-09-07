@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix | SignUp</title>
+        <link rel="icon" type="image/x-icon" href="assets/images/netflix favicon.png">
+    <link rel="stylesheet" href="./css/signUp.css">
+</head>
+<body>
+    <form action="phpScrips/userRegister.php" method="POST" enctype="multipart/form-data" > 
+        <div class="container">   
+            <center> <h1>Sign Up</h1> </center>   
+            <input type="text" placeholder="Full Name" id="Fullname" name="Fullname" required>
+            <input type="Email" placeholder="Email" id="Email" name="Email" required> 
+            <input type="password" placeholder="Password" id="Password" name="Password" required>    
+            <input required type="file" id="pic" name="pic">
+            <button type="submit">Sign up</button>  
+            <a href="signIn.html">Back</a>  
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>   
+    </form>     
+</body>
+</html>

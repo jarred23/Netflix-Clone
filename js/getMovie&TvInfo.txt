@@ -1,0 +1,89 @@
+
+
+----------------------------------------------------------------
+----------------------------------------------------------------
+--------------------------Movies & Tv---------------------------
+----------------------------------------------------------------
+----------------------------------------------------------------
+
+//To get the movie info u will have the function for the movie 
+
+fetch(requests.fetchTrending)   
+  .then((res) => res.json())
+  .then((data) => {
+    const headrow = document.getElementById("headrow");
+    const row = document.createElement("div");
+    row.className = "row";
+    row.classList.add("netflixrow");
+    headrow.appendChild(row);
+    const title = document.createElement("h2");
+    title.className = "row__title";
+    title.innerText = "NETFLIX ORIGINALS";
+    row.appendChild(title);
+    const row_posters = document.createElement("div");
+    row_posters.className = "row__posters";
+    row.appendChild(row_posters);
+    data.results.forEach((movie) => {
+      const poster = document.createElement("img");
+      poster.className = "row__posterLarge";
+      var s = movie.name.replace(/\s+/g, "");
+      poster.id = s;
+      poster.src = img_url + movie.poster_path;
+      row_posters.appendChild(poster);
+    });
+  });
+
+  //and then u need to add the next to it =>
+
+  poster.addEventListener("click", () => {
+        window.location.href = `movie-details.html?id=${movie.id}`;
+      });
+
+//The complete code the this two will be =>
+
+fetch(requests.fetchTrending)
+  .then((res) => res.json())
+  .then((data) => {
+    const headrow = document.getElementById("headrow");
+    const row = document.createElement("div");
+    row.className = "row";
+    headrow.appendChild(row);
+    const title = document.createElement("h2");
+    title.className = "row__title";
+    title.innerText = "Top Movies in South Africa Today";
+    row.appendChild(title);
+    const row_posters = document.createElement("div");
+    row_posters.className = "row__posters";
+    row.appendChild(row_posters);
+    data.results.forEach((movie) => {
+      console.log(movie);
+      const poster = document.createElement("img");
+      poster.className = "row__posterLarge";
+      var s2 = movie.id;
+      poster.id = s2;
+      poster.src = img_url + movie.poster_path;
+      row_posters.appendChild(poster);
+      
+
+      poster.addEventListener("click", () => {
+        window.location.href = `movie-details.html?id=${movie.id}`;
+      });
+    });
+  });
+
+
+
+
+THE ONLY THING THAT WILL CHANGE FROM THE MOVIE TO THE TV U WILL NEED TO CHANGE 
+THE LOCATION IN THE EVENTLISTENER SO FOR THE 
+MOVIES IT WILL BE :
+
+`movie-details.html?id=${movie.id}`
+
+AND  
+
+FOR THE TV IT WILL BE 
+
+`tv-details.html?id=${tv.id}`
+
+
